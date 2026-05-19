@@ -1035,6 +1035,206 @@ const countries = [
   },
 ];
 
+const sourceRegistry = {
+  us: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'FinCEN convertible virtual currency guidance', url:'https://www.fincen.gov/resources/statutes-regulations/guidance/application-fincens-regulations-persons-administering-exchanging-or-using' },
+      { label:'SEC crypto assets resources', url:'https://www.sec.gov/securities-topics/crypto-assets' },
+      { label:'CFTC digital assets resources', url:'https://www.cftc.gov/digitalassets/index.htm' }
+    ]
+  },
+  ca: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'CSA crypto trading platforms', url:'https://www.securities-administrators.ca/crypto-trading-platforms/' },
+      { label:'FINTRAC virtual currency guidance', url:'https://fintrac-canafe.canada.ca/guidance-directives/virtual-currency-monnaie-virtuelle/1-eng' }
+    ]
+  },
+  mx: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'CNBV fintech regulation', url:'https://www.cnbv.gob.mx/SECTORES-SUPERVISADOS/Fintech/Paginas/NORMATIVIDAD-FINTECH.aspx' },
+      { label:'CNBV/Banxico/SHCP virtual asset statement', url:'https://www.gob.mx/cnbv/prensa/comunicado-conjunto-banco-de-mexico-shcp-y-cnbv-advierten-sobre-riesgos-de-utilizar-activos-virtuales?idiom=es' }
+    ]
+  },
+  sv: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'CNAD official site', url:'https://cnad.gob.sv/es/inicio/' },
+      { label:'CNAD public DASP registry', url:'https://cnad.gob.sv/public-registry/digital-assets-service-provider/' },
+      { label:'Digital Assets Issuance Law translation', url:'https://cnad.gob.sv/wp-content/uploads/2024/04/LEY-DE-ACTIVOS-DIGITALES-2023-ENG.pdf' },
+      { label:'DASP regulations translation', url:'https://cnad.gob.sv/wp-content/uploads/2024/04/Digital-Assets-Services-Providers-Regulations-English-rev.pdf' }
+    ]
+  },
+  br: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'Brazil Law 14.478/2022', url:'https://www.planalto.gov.br/CCIVIL_03/_Ato2019-2022/2022/Lei/L14478.htm' },
+      { label:'BCB virtual asset service provider rules', url:'https://www.bcb.gov.br/en/pressdetail/2639/nota' },
+      { label:'CVM decree on virtual assets', url:'https://www.gov.br/cvm/pt-br/assuntos/noticias/2023/publicado-decreto-sobre-ativos-virtuais' }
+    ]
+  },
+  ve: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'SUNACRIP official site', url:'https://www.sunacrip.gob.ve/' },
+      { label:'OFAC Venezuela-related sanctions', url:'https://ofac.treasury.gov/sanctions-programs-and-country-information/venezuela-related-sanctions' }
+    ]
+  },
+  co: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'Superfinanciera InnovaSFC', url:'https://www.superfinanciera.gov.co/inicio/innovasfc/' },
+      { label:'UIAF official site', url:'https://www.uiaf.gov.co/' }
+    ]
+  },
+  cl: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'Chile Fintech Law 21.521', url:'https://www.bcn.cl/leychile/navegar?idNorma=1187323' },
+      { label:'CMF official site', url:'https://www.cmfchile.cl/portal/principal/613/w3-channel.html' }
+    ]
+  },
+  ar: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'CNV PSAV registry information', url:'https://www.argentina.gob.ar/cnv/psav' },
+      { label:'CNV General Resolution 994/2024', url:'https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-994-2024-397617' }
+    ]
+  },
+  uk: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'FCA cryptoasset AML regime', url:'https://www.fca.org.uk/cryptoassets-aml-ctf-regime' },
+      { label:'FCA cryptoassets', url:'https://www.fca.org.uk/firms/cryptoassets' },
+      { label:'HM Treasury cryptoasset consultation', url:'https://www.gov.uk/government/consultations/future-financial-services-regulatory-regime-for-cryptoassets' }
+    ]
+  },
+  eu: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'European Commission crypto-assets policy', url:'https://finance.ec.europa.eu/digital-finance/crypto-assets_en' },
+      { label:'ESMA MiCA resources', url:'https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica' },
+      { label:'EBA asset-referenced and e-money tokens', url:'https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/asset-referenced-and-e-money-tokens' }
+    ]
+  },
+  ch: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'FINMA fintech authorisation', url:'https://www.finma.ch/en/authorisation/fintech/' },
+      { label:'FINMA ICO guidelines', url:'https://www.finma.ch/en/news/2018/02/20180216-mm-ico-wegleitung/' }
+    ]
+  },
+  tr: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'Turkish Official Gazette Law 7518', url:'https://www.resmigazete.gov.tr/eskiler/2024/07/20240702-1.htm' },
+      { label:'Capital Markets Board official site', url:'https://www.spk.gov.tr/' },
+      { label:'MASAK official site', url:'https://masak.hmb.gov.tr/' }
+    ]
+  },
+  sa: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'Saudi Central Bank fintech resources', url:'https://www.sama.gov.sa/en-US/FinTech/Pages/default.aspx' },
+      { label:'CMA FinTech Lab', url:'https://cma.org.sa/en/Market/FinTech/Pages/default.aspx' }
+    ]
+  },
+  ae: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'VARA rulebooks', url:'https://www.vara.ae/en/rulebook/' },
+      { label:'ADGM virtual assets', url:'https://www.adgm.com/operating-in-adgm/financial-services/virtual-assets' },
+      { label:'DFSA crypto tokens', url:'https://www.dfsa.ae/what-we-do/innovation/crypto-tokens' }
+    ]
+  },
+  sg: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'MAS digital payment token service providers', url:'https://www.mas.gov.sg/regulation/payments/digital-payment-token-service-providers' },
+      { label:'MAS guide to digital token offerings', url:'https://www.mas.gov.sg/regulation/explainers/a-guide-to-digital-token-offerings' }
+    ]
+  },
+  hk: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'SFC virtual asset trading platforms', url:'https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms' },
+      { label:'HKMA stablecoin issuer regime', url:'https://www.hkma.gov.hk/eng/key-functions/international-financial-centre/stablecoin-issuer-regime/' }
+    ]
+  },
+  jp: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'Japan FSA crypto assets', url:'https://www.fsa.go.jp/en/policy/virtual_currency02/index.html' },
+      { label:'JVCEA official site', url:'https://jvcea.or.jp/' }
+    ]
+  },
+  kr: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'Financial Services Commission official site', url:'https://www.fsc.go.kr/eng/' },
+      { label:'Korea Financial Intelligence Unit', url:'https://www.kofiu.go.kr/eng/main.do' }
+    ]
+  },
+  th: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'SEC Thailand digital assets', url:'https://www.sec.or.th/EN/Pages/LawandRegulations/DigitalAsset.aspx' },
+      { label:'Bank of Thailand digital assets', url:'https://www.bot.or.th/en/financial-innovation/digital-finance/digital-assets.html' }
+    ]
+  },
+  ph: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'BSP Circular 1108', url:'https://www.bsp.gov.ph/Pages/Regulations/Regulatory%20Issuances/2021/1108.pdf' },
+      { label:'CEZA fintech and offshore virtual currency', url:'https://ceza.gov.ph/fintech/' }
+    ]
+  },
+  id: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'BAPPEBTI official site', url:'https://bappebti.go.id/' },
+      { label:'OJK digital financial assets', url:'https://www.ojk.go.id/en/berita-dan-kegiatan/siaran-pers/Pages/OJK-Issues-Regulation-on-Information-Technology-Based-Joint-Funding-Services-and-Digital-Financial-Assets.aspx' }
+    ]
+  },
+  au: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'AUSTRAC digital currency exchange providers', url:'https://www.austrac.gov.au/business/core-guidance/amlctf-programs/digital-currency-exchange-providers' },
+      { label:'ASIC crypto assets', url:'https://asic.gov.au/regulatory-resources/digital-transformation/crypto-assets/' }
+    ]
+  },
+  in: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'FIU-IND official site', url:'https://fiuindia.gov.in/' },
+      { label:'Income Tax Department VDA circular', url:'https://incometaxindia.gov.in/communications/circular/circular-no-13-2022.pdf' }
+    ]
+  },
+  ng: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'SEC Nigeria digital asset rules', url:'https://sec.gov.ng/rules-on-issuance-offering-platforms-and-custody-of-digital-assets/' },
+      { label:'SEC Nigeria ARIP framework', url:'https://sec.gov.ng/framework-on-accelerated-regulatory-incubation-program-arip-for-the-onboarding-of-virtual-assets-service-providers-vasps-and-other-digital-investments-service-providers-disps/' }
+    ]
+  },
+  za: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'FSCA crypto assets', url:'https://www.fsca.co.za/Regulated%20Entities/Pages/Crypto-Assets.aspx' },
+      { label:'Financial Intelligence Centre Travel Rule', url:'https://www.fic.gov.za/compliance/Pages/Travel-Rule.aspx' }
+    ]
+  },
+  cn: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'PBOC virtual currency notice', url:'https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/4348521/index.html' },
+      { label:'NDRC virtual currency mining notice', url:'https://www.ndrc.gov.cn/xxgk/zcfb/tz/202109/t20210924_1297475.html' }
+    ]
+  }
+};
+
 /* ============================================
    RENDERING
 ============================================ */
@@ -1067,8 +1267,9 @@ function numberWord(value) {
 }
 
 function sourceMeta(c) {
-  const reviewed = c.lastReviewed || 'early 2026';
-  const sources = Array.isArray(c.sources) ? c.sources : [];
+  const registryEntry = sourceRegistry[c.id] || {};
+  const reviewed = c.lastReviewed || registryEntry.lastReviewed || 'May 2026';
+  const sources = Array.isArray(c.sources) ? c.sources : (registryEntry.sources || []);
   if (!sources.length) {
     return `
       <div class="source-meta">

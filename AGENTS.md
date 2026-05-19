@@ -67,7 +67,7 @@ Country data lives in the `countries` array inside `index.html` (search for `con
 }
 ```
 
-Adding a country automatically updates: the world map pin, the stat counters at the top, the regional card grid, and the search/filter logic. No other edits needed.
+Adding a country automatically updates: the world map pin, the stat counters at the top, the regional card grid, and the search/filter logic. Add source-review links either directly on the country entry or in the `sourceRegistry` object keyed by country `id`.
 
 If a country pin overlaps with another or its label clashes, adjust the `labelOffsets` object further down in the same file (`dx`, `dy` from the pin).
 
