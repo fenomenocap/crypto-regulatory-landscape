@@ -25,6 +25,12 @@
     --restricted: #fbbf24;
     --restricted-bg: rgba(251, 191, 36, 0.1);
     --restricted-glow: rgba(251, 191, 36, 0.25);
+    --payment-restricted: #38bdf8;
+    --payment-restricted-bg: rgba(56, 189, 248, 0.1);
+    --payment-restricted-glow: rgba(56, 189, 248, 0.25);
+    --transitional: #a78bfa;
+    --transitional-bg: rgba(167, 139, 250, 0.1);
+    --transitional-glow: rgba(167, 139, 250, 0.25);
     --banned: #ef4444;
     --banned-bg: rgba(239, 68, 68, 0.1);
     --banned-glow: rgba(239, 68, 68, 0.3);
@@ -87,8 +93,8 @@
     line-height: 1.6;
   }
   .header-right {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-    align-self: flex-end; min-width: 360px;
+    display: grid; grid-template-columns: repeat(5, minmax(86px, 1fr)); gap: 14px;
+    align-self: flex-end; min-width: 560px;
   }
   .stat {
     display: flex; flex-direction: column; gap: 4px;
@@ -96,6 +102,8 @@
     border-left: 2px solid var(--border-strong);
   }
   .stat[data-status="licensed"] { border-left-color: var(--licensed); }
+  .stat[data-status="payment-restricted"] { border-left-color: var(--payment-restricted); }
+  .stat[data-status="transitional"] { border-left-color: var(--transitional); }
   .stat[data-status="restricted"] { border-left-color: var(--restricted); }
   .stat[data-status="banned"] { border-left-color: var(--banned); }
   .stat-value {
@@ -135,6 +143,8 @@
   .chip.active { background: var(--text-primary); color: var(--bg); border-color: var(--text-primary); }
   .chip .swatch { width: 8px; height: 8px; border-radius: 50%; }
   .chip[data-status="licensed"] .swatch { background: var(--licensed); }
+  .chip[data-status="payment-restricted"] .swatch { background: var(--payment-restricted); }
+  .chip[data-status="transitional"] .swatch { background: var(--transitional); }
   .chip[data-status="restricted"] .swatch { background: var(--restricted); }
   .chip[data-status="banned"] .swatch { background: var(--banned); }
 
@@ -204,6 +214,16 @@
   .country-pin[data-status="licensed"] .pin-ring { stroke: var(--licensed); }
   .country-pin[data-status="licensed"] .pin-dot { filter: drop-shadow(0 0 4px var(--licensed-glow)); }
 
+  .country-pin[data-status="payment-restricted"] .pin-dot,
+  .country-pin[data-status="payment-restricted"] .pin-pulse { fill: var(--payment-restricted); }
+  .country-pin[data-status="payment-restricted"] .pin-ring { stroke: var(--payment-restricted); }
+  .country-pin[data-status="payment-restricted"] .pin-dot { filter: drop-shadow(0 0 4px var(--payment-restricted-glow)); }
+
+  .country-pin[data-status="transitional"] .pin-dot,
+  .country-pin[data-status="transitional"] .pin-pulse { fill: var(--transitional); }
+  .country-pin[data-status="transitional"] .pin-ring { stroke: var(--transitional); }
+  .country-pin[data-status="transitional"] .pin-dot { filter: drop-shadow(0 0 4px var(--transitional-glow)); }
+
   .country-pin[data-status="restricted"] .pin-dot,
   .country-pin[data-status="restricted"] .pin-pulse { fill: var(--restricted); }
   .country-pin[data-status="restricted"] .pin-ring { stroke: var(--restricted); }
@@ -233,6 +253,8 @@
   .legend-item { display: flex; align-items: center; gap: 8px; }
   .legend-item .dot { width: 8px; height: 8px; border-radius: 50%; }
   .legend-item[data-status="licensed"] .dot { background: var(--licensed); box-shadow: 0 0 6px var(--licensed-glow); }
+  .legend-item[data-status="payment-restricted"] .dot { background: var(--payment-restricted); box-shadow: 0 0 6px var(--payment-restricted-glow); }
+  .legend-item[data-status="transitional"] .dot { background: var(--transitional); box-shadow: 0 0 6px var(--transitional-glow); }
   .legend-item[data-status="restricted"] .dot { background: var(--restricted); box-shadow: 0 0 6px var(--restricted-glow); }
   .legend-item[data-status="banned"] .dot { background: var(--banned); box-shadow: 0 0 6px var(--banned-glow); }
 
@@ -279,6 +301,8 @@
     content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 2px;
   }
   .country-card[data-status="licensed"]::before { background: var(--licensed); }
+  .country-card[data-status="payment-restricted"]::before { background: var(--payment-restricted); }
+  .country-card[data-status="transitional"]::before { background: var(--transitional); }
   .country-card[data-status="restricted"]::before { background: var(--restricted); }
   .country-card[data-status="banned"]::before { background: var(--banned); }
   .country-card.hidden { display: none; }
@@ -303,6 +327,8 @@
     align-self: flex-start; margin-top: 4px;
   }
   .card-status[data-status="licensed"] { color: var(--licensed); background: var(--licensed-bg); }
+  .card-status[data-status="payment-restricted"] { color: var(--payment-restricted); background: var(--payment-restricted-bg); }
+  .card-status[data-status="transitional"] { color: var(--transitional); background: var(--transitional-bg); }
   .card-status[data-status="restricted"] { color: var(--restricted); background: var(--restricted-bg); }
   .card-status[data-status="banned"] { color: var(--banned); background: var(--banned-bg); }
 
@@ -347,6 +373,8 @@
     padding: 3px 9px; border-radius: 100px;
   }
   .panel-eyebrow .status-pill[data-status="licensed"] { color: var(--licensed); background: var(--licensed-bg); }
+  .panel-eyebrow .status-pill[data-status="payment-restricted"] { color: var(--payment-restricted); background: var(--payment-restricted-bg); }
+  .panel-eyebrow .status-pill[data-status="transitional"] { color: var(--transitional); background: var(--transitional-bg); }
   .panel-eyebrow .status-pill[data-status="restricted"] { color: var(--restricted); background: var(--restricted-bg); }
   .panel-eyebrow .status-pill[data-status="banned"] { color: var(--banned); background: var(--banned-bg); }
 
@@ -451,7 +479,7 @@
   @media (max-width: 900px) {
     body { padding: 24px 20px 60px; }
     .header { flex-direction: column; gap: 28px; }
-    .header-right { min-width: 0; width: 100%; }
+    .header-right { min-width: 0; width: 100%; grid-template-columns: repeat(auto-fit, minmax(92px, 1fr)); }
     .panel-title { font-size: 38px; }
     .panel-title .flag { font-size: 28px; }
     .controls { flex-direction: column; align-items: flex-start; }
@@ -478,12 +506,20 @@
       <span>Global Compliance Intelligence</span>
     </div>
     <h1 class="title">A regulatory <em>atlas</em> of crypto sovereignty.</h1>
-    <p class="subtitle"><span id="jurisdiction-total-inline">—</span> jurisdictions, three classifications. The map countries will continue to draw — adapt or be forced out. Click any pin or card to open the dossier.</p>
+    <p class="subtitle"><span id="jurisdiction-total-inline">—</span> jurisdictions, five classifications. The map countries will continue to draw — adapt or be forced out. Click any pin or card to open the dossier.</p>
   </div>
   <div class="header-right">
     <div class="stat" data-status="licensed">
       <div class="stat-value" id="stat-licensed">—</div>
       <div class="stat-label">Licensed</div>
+    </div>
+    <div class="stat" data-status="payment-restricted">
+      <div class="stat-value" id="stat-payment-restricted">—</div>
+      <div class="stat-label">Pay Restricted</div>
+    </div>
+    <div class="stat" data-status="transitional">
+      <div class="stat-value" id="stat-transitional">—</div>
+      <div class="stat-label">Transitional</div>
     </div>
     <div class="stat" data-status="restricted">
       <div class="stat-value" id="stat-restricted">—</div>
@@ -502,6 +538,8 @@
     <span class="filter-label">Filter</span>
     <button class="chip active" type="button" data-filter="all" aria-pressed="true">All</button>
     <button class="chip" type="button" data-filter="licensed" data-status="licensed" aria-pressed="false"><span class="swatch"></span>Licensed</button>
+    <button class="chip" type="button" data-filter="payment-restricted" data-status="payment-restricted" aria-pressed="false"><span class="swatch"></span>Payment Restricted</button>
+    <button class="chip" type="button" data-filter="transitional" data-status="transitional" aria-pressed="false"><span class="swatch"></span>Transitional</button>
     <button class="chip" type="button" data-filter="restricted" data-status="restricted" aria-pressed="false"><span class="swatch"></span>Restricted</button>
     <button class="chip" type="button" data-filter="banned" data-status="banned" aria-pressed="false"><span class="swatch"></span>Banned</button>
   </div>
@@ -562,6 +600,8 @@
   <div class="legend-row">
     <div class="legend">
       <div class="legend-item" data-status="licensed"><span class="dot"></span><span>Licensed & regulated</span></div>
+      <div class="legend-item" data-status="payment-restricted"><span class="dot"></span><span>Payment restricted</span></div>
+      <div class="legend-item" data-status="transitional"><span class="dot"></span><span>Transitional / pilot</span></div>
       <div class="legend-item" data-status="restricted"><span class="dot"></span><span>Restricted</span></div>
       <div class="legend-item" data-status="banned"><span class="dot"></span><span>Banned</span></div>
     </div>
@@ -796,7 +836,7 @@ const countries = [
     ],
     practical:'The grown-up jurisdiction. Cost is real but so is institutional credibility. Zug remains the densest crypto cluster in Europe. Particularly strong for foundation structures (associations) tied to protocol governance, tokenized securities, and bank-grade custody.'
   },
-  { id:'tr', name:'Turkey', flag:'🇹🇷', region:'Europe', lat:39, lng:35, status:'licensed',
+  { id:'tr', name:'Turkey', flag:'🇹🇷', region:'Europe', lat:39, lng:35, status:'payment-restricted',
     regulators:'CMB · MASAK',
     tagline:'Crypto Law 7518 brought CASPs under CMB; massive organic adoption.',
     summary:'Law 7518 (mid-2024) brought crypto asset service providers within CMB jurisdiction, formalizing one of the world\'s largest stablecoin-driven retail crypto markets.',
@@ -828,19 +868,19 @@ const countries = [
     practical:'Watch for movement post-Vision 2030 financial sector milestones. Tokenized sukuk and RWA structures are the realistic near-term pathway, not retail trading. Cross-border servicing of Saudi clients from elsewhere carries real legal risk.'
   },
   { id:'ae', name:'United Arab Emirates', flag:'🇦🇪', region:'MENA', lat:24, lng:54, status:'licensed',
-    regulators:'VARA · SCA · ADGM · DFSA',
+    regulators:'VARA · SCA · FSRA · DFSA · CBUAE',
     tagline:'Multi-regulator hub; among the most progressive frameworks globally.',
-    summary:'The UAE operates one of the most developed crypto licensing regimes in the world, with overlapping jurisdictions across federal SCA, Dubai\'s VARA, ADGM FSRA, and Dubai\'s DFSA.',
-    framework:'VARA (Dubai mainland and free zones except DIFC) licenses Virtual Asset Service Providers across exchange, broker-dealer, custody, lending, advisory, and management categories. SCA covers UAE federal jurisdiction outside the free zones. ADGM FSRA operates a comprehensive regime in Abu Dhabi global financial free zone. DFSA covers DIFC.',
-    licenseTypes:'VARA VASP license (multiple categories), SCA crypto activity license, ADGM FSRA virtual asset framework license, DFSA crypto token license.',
+    summary:'The UAE operates one of the most developed crypto licensing landscapes globally, but the regulator depends on geography and activity: VARA for Dubai outside DIFC, DFSA inside DIFC, FSRA inside ADGM, SCA for federal/onshore securities perimeter, and CBUAE for payment-token and stored-value/payment rails.',
+    framework:'VARA licenses Virtual Asset Service Providers in Dubai outside the DIFC. DFSA regulates crypto-token activity inside DIFC. ADGM\'s FSRA operates a comprehensive virtual asset framework in Abu Dhabi Global Market. SCA covers federal/onshore securities and commodities markets, while CBUAE is the relevant authority for payment systems, stored value, and payment-token/stablecoin rails.',
+    licenseTypes:'VARA VASP license, ADGM FSRA virtual asset permission, DFSA crypto token permission, SCA authorization for federal/onshore market activity, CBUAE payment or stablecoin-related approvals where payment rails are implicated.',
     requirements:[
-      'Choose jurisdiction: VARA (Dubai), SCA (federal), ADGM (Abu Dhabi), or DFSA (DIFC)',
+      'Choose the correct perimeter: VARA (Dubai outside DIFC), DFSA (DIFC), FSRA (ADGM), SCA (federal/onshore), or CBUAE (payments/stablecoins)',
       'Substance: local entity, local senior management, physical office, minimum capital by activity',
       'Robust governance, custody segregation, conflict policies, and risk management',
       'AML/CFT under UAE federal AML law and FATF-aligned obligations',
       'Marketing rules — VARA in particular enforces strict promotion standards'
     ],
-    practical:'The default international hub alongside Singapore. Real ecosystem density, friendly tax regime (no personal income tax, 9% federal corporate tax with QFZP carveouts), and genuine regulatory credibility. VARA is the most active globally for new licenses. ADGM remains the strongest for institutional and tokenization work. Geopolitical exposure has risen — factor it into base-jurisdiction decisions.'
+    practical:'The default international hub alongside Singapore. Real ecosystem density, friendly tax regime (no personal income tax, 9% federal corporate tax with QFZP carveouts), and genuine regulatory credibility. VARA is the most visible for Dubai VASPs; FSRA is the institutional ADGM path; DFSA is the DIFC path; CBUAE matters once the product touches payment or stablecoin rails. Geopolitical exposure has risen — factor it into base-jurisdiction decisions.'
   },
 
   // ===== APAC =====
@@ -908,7 +948,22 @@ const countries = [
     ],
     practical:'Massive trading volumes, concentrated user base, fierce competition. The real-name banking constraint is the binding scarcity — without that partnership, KRW on-ramps are impossible. Best as a focused single-jurisdiction play, not a side-of-desk market.'
   },
-  { id:'th', name:'Thailand', flag:'🇹🇭', region:'APAC', lat:15, lng:101, status:'licensed',
+  { id:'tw', name:'Taiwan', flag:'🇹🇼', region:'APAC', lat:23.7, lng:121, status:'transitional',
+    regulators:'FSC · FIU',
+    tagline:'AML registration regime; full VASP supervision still maturing.',
+    summary:'Taiwan has moved from AML compliance statements toward formal FSC registration for virtual asset service providers, with industry self-regulation and a fuller supervisory regime still developing.',
+    framework:'The FSC issued AML registration rules for enterprises or persons providing virtual asset services, requiring VASPs to register before offering services in Taiwan. The framework is primarily AML/CFT-led today, supported by self-regulatory rules from the Taiwan VASP association, while broader conduct, prudential, and investor-protection rules continue to mature.',
+    licenseTypes:'FSC AML registration for VASPs; securities or payment permissions may apply where tokenized securities or fiat payment services are involved.',
+    requirements:[
+      'AML registration with the FSC before providing virtual asset services',
+      'Internal controls, internal audit, customer due diligence, sanctions screening, and suspicious-transaction reporting',
+      'Compliance with Taiwan VASP association self-regulatory rules',
+      'Local entity and responsible-person requirements for eligible applicants',
+      'Separate analysis for securities-token, stablecoin, or payment-service activity'
+    ],
+    practical:'Worth adding for APAC completeness, but classify it as transitional rather than fully licensed. Taiwan has serious regulatory momentum and strong financial infrastructure, yet the current regime is still AML-registration-heavy compared with Singapore, Hong Kong, Japan, or Korea.'
+  },
+  { id:'th', name:'Thailand', flag:'🇹🇭', region:'APAC', lat:15, lng:101, status:'payment-restricted',
     regulators:'SEC · BoT',
     tagline:'Emergency Decree on Digital Assets; one of APAC\'s earliest frameworks.',
     summary:'The Emergency Decree on Digital Asset Businesses (2018) gave Thailand SEC a comprehensive licensing framework covering exchanges, brokers, dealers, fund managers, and ICOs. Recent reforms permit retail crypto with safeguards.',
@@ -926,33 +981,63 @@ const countries = [
   },
   { id:'ph', name:'Philippines', flag:'🇵🇭', region:'APAC', lat:13, lng:122, status:'licensed',
     regulators:'BSP · SEC',
-    tagline:'Long-standing VASP regime; CEZA offshore framework.',
-    summary:'Bangko Sentral ng Pilipinas has licensed VASPs since 2017, and the SEC regulates crypto securities. CEZA (Cagayan Economic Zone Authority) offers a separate offshore framework for non-Philippine-resident-facing operators.',
-    framework:'BSP Circular 1108 governs VASPs onshore. CEZA issues offshore licenses to operators serving non-residents (Financial Technology Solutions and Offshore Virtual Currency licenses). SEC covers token-securities. AMLC handles AML.',
-    licenseTypes:'BSP VASP registration (onshore), CEZA FTSOVC license (offshore-facing), SEC registration for security tokens.',
+    tagline:'Long-standing BSP VASP regime; securities tokens sit with SEC.',
+    summary:'Bangko Sentral ng Pilipinas has licensed VASPs since 2017, making the Philippines one of Southeast Asia\'s earlier regulated crypto markets. SEC remains relevant where tokens look like securities or investment contracts.',
+    framework:'BSP Circular 1108 governs VASPs serving Philippine residents, including exchanges, custodians, and transfer businesses. SEC covers token-securities and investment-contract activity. AMLC handles AML supervision.',
+    licenseTypes:'BSP VASP registration for resident-facing activity, SEC registration or exemption for security tokens and investment-contract structures.',
     requirements:[
       'BSP VASP registration for serving Philippine residents',
       'Capital and operational substance',
       'AMLC compliance and Travel Rule',
-      'For CEZA: physical presence in the zone, capital requirements, prohibition on Philippine-resident clients',
       'Consumer protection and disclosure'
     ],
-    practical:'Surprisingly mature ecosystem. CEZA is useful as a lower-friction offshore licensed base for non-Philippine retail (still real substance required). Strong for remittance corridors and play-to-earn legacy markets.'
+    practical:'Surprisingly mature ecosystem with strong remittance use cases and high retail familiarity. Treat the BSP path as the primary route for mainstream Philippine market access; offshore-zone structures are not the core story for this map.'
   },
-  { id:'id', name:'Indonesia', flag:'🇮🇩', region:'APAC', lat:-5, lng:120, status:'restricted',
-    regulators:'BAPPEBTI → OJK',
-    tagline:'Crypto-as-commodity transitioning to OJK supervision.',
-    summary:'Crypto in Indonesia has historically been regulated as a commodity by BAPPEBTI, with supervisory authority transitioning to OJK (financial services) over 2025–2026.',
-    framework:'BAPPEBTI Regulation No. 8/2021 created the Physical Crypto Asset Trading framework: licensed exchanges, custodians, and clearinghouses. The 2023 P2SK Law (Financial Sector Development Strengthening) transfers crypto supervision to OJK on a defined timeline, integrating crypto into the broader financial services regulatory perimeter. Crypto is permitted for investment but not as legal tender.',
-    licenseTypes:'BAPPEBTI Physical Crypto Asset Trader license (transitioning to OJK), Custodian license, Futures Clearing House license, IDCX (Indonesia Digital Asset Exchange) participation.',
+  { id:'id', name:'Indonesia', flag:'🇮🇩', region:'APAC', lat:-5, lng:120, status:'payment-restricted',
+    regulators:'OJK · BI · BAPPEBTI',
+    tagline:'Regulated crypto trading; payments remain rupiah-only.',
+    summary:'Indonesia permits regulated crypto-asset trading and custody, but Bank Indonesia prohibits use of crypto as a means of payment. Supervisory authority has shifted from BAPPEBTI toward OJK under the financial-sector reform framework.',
+    framework:'BAPPEBTI Regulation No. 8/2021 created the physical crypto asset trading framework, but authority over digital financial assets including crypto assets transferred to OJK in January 2025 under the P2SK reform process. Crypto may be traded as a digital financial asset through regulated venues and licensed participants; it is not legal tender and cannot be used for domestic payments.',
+    licenseTypes:'OJK digital financial asset / crypto-asset trading permissions, physical crypto asset trader approvals carried over from the BAPPEBTI regime, custodian and exchange-related permissions, with BI retaining the payment-system perimeter.',
     requirements:[
-      'Licensing through BAPPEBTI / OJK with substantial capital requirements',
-      'Mandatory participation in IDCX (national digital asset exchange) infrastructure',
+      'Licensing or registration through OJK, including transition of legacy BAPPEBTI approvals',
+      'Use of approved crypto assets and regulated market infrastructure, including CFX/ICDX ecosystem participants where applicable',
       'Local entity, local management, AML/CFT compliance under PPATK',
       'Approved token list maintained by regulator — long-tail tokens excluded',
-      'Customer asset segregation and reporting standards'
+      'Customer asset segregation and reporting standards',
+      'No use of crypto assets as a means of payment; rupiah remains the only lawful payment instrument'
     ],
-    practical:'Significant market size, but operational friction is high — the centralized IDCX architecture and approved-token-list approach constrain product flexibility. Watch the OJK transition carefully; the supervisory shift could materially change the regime.'
+    practical:'Do not read Indonesia as crypto-hostile. It is a large regulated trading market with real retail adoption, but the activity boundary matters: investment/trading is permitted through regulated channels, while payments are firmly off-limits. For stablecoin/payment products, this distinction is the whole story.'
+  },
+  { id:'my', name:'Malaysia', flag:'🇲🇾', region:'APAC', lat:4.2, lng:102, status:'licensed',
+    regulators:'SC · BNM',
+    tagline:'SC-regulated digital asset exchanges; central bank controls payments perimeter.',
+    summary:'Malaysia has a formal digital asset framework under the Securities Commission, covering digital asset exchanges, custodians, and token offerings, with Bank Negara Malaysia remaining relevant for payment systems and fiat rails.',
+    framework:'The Securities Commission regulates digital assets under the Capital Markets and Services framework, including recognized market operator requirements for Digital Asset Exchanges and Guidelines on Digital Assets for issuers, IEO operators, and custodians. BNM does not treat digital assets as legal tender and remains relevant where payment services, e-money, or banking rails are implicated.',
+    licenseTypes:'Recognized Market Operator for Digital Asset Exchange (RMO-DAX), digital asset custodian registration, IEO operator registration, securities authorization where token features fall within capital-markets law.',
+    requirements:[
+      'SC registration or approval for DAX, custodian, IEO, or relevant digital asset activity',
+      'Client asset safeguarding, fit-and-proper management, governance, and operational-resilience controls',
+      'Token listing and issuer due diligence under SC guidelines',
+      'AML/CFT controls and Travel Rule readiness',
+      'Separate BNM analysis where payment services, e-money, or fiat settlement rails are involved'
+    ],
+    practical:'A meaningful Southeast Asia omission to fix. Malaysia is more regulated than experimental: good for compliant spot exchange and custody models, less natural for aggressive retail-token launches or payment-token products without a separate BNM analysis.'
+  },
+  { id:'vn', name:'Vietnam', flag:'🇻🇳', region:'APAC', lat:16, lng:108, status:'transitional',
+    regulators:'MoF · SBV · SSC',
+    tagline:'Five-year pilot framework; huge adoption, formal market still forming.',
+    summary:'Vietnam has very high crypto adoption and moved toward a formal pilot market in 2025, but the regulated operating model is still transitional rather than a conventional open licensing regime.',
+    framework:'Resolution 05/2025/NQ-CP launched a five-year pilot for a crypto-asset market, creating a route for controlled issuance, trading, custody, and service provision through approved domestic platforms. The State Bank of Vietnam remains relevant for payment and currency restrictions; securities and financial-market regulators remain relevant where tokenized assets overlap with capital markets.',
+    licenseTypes:'Pilot-program authorization for crypto-asset trading platforms and related services; separate permissions for securities, payment, or banking activity where implicated.',
+    requirements:[
+      'Participation through approved pilot platforms and Vietnamese legal entities',
+      'Capital, cybersecurity, governance, and personnel requirements under the pilot framework',
+      'AML/CFT and transaction reporting obligations',
+      'Restrictions on informal/offshore servicing of Vietnamese users once pilot channels are active',
+      'Payment and fiat-rail restrictions remain subject to SBV oversight'
+    ],
+    practical:'Vietnam is strategically important because adoption is enormous, but this is not yet a clean plug-and-play licensing market. Treat it as a high-upside transitional regime: watch which firms are admitted to the pilot, how foreign exchanges are treated, and whether stablecoin demand gets pulled into official channels.'
   },
   { id:'au', name:'Australia', flag:'🇦🇺', region:'APAC', lat:-25, lng:133, status:'licensed',
     regulators:'AUSTRAC · ASIC · APRA',
@@ -1146,7 +1231,8 @@ const sourceRegistry = {
     sources:[
       { label:'VARA rulebooks', url:'https://www.vara.ae/en/rulebook/' },
       { label:'ADGM virtual assets', url:'https://www.adgm.com/operating-in-adgm/financial-services/virtual-assets' },
-      { label:'DFSA crypto tokens', url:'https://www.dfsa.ae/what-we-do/innovation/crypto-tokens' }
+      { label:'DFSA crypto tokens', url:'https://www.dfsa.ae/what-we-do/innovation/crypto-tokens' },
+      { label:'CBUAE payment token services regulation', url:'https://rulebook.centralbank.ae/en/rulebook/payment-token-services-regulation' }
     ]
   },
   sg: {
@@ -1188,14 +1274,38 @@ const sourceRegistry = {
     lastReviewed:'May 2026',
     sources:[
       { label:'BSP Circular 1108', url:'https://www.bsp.gov.ph/Pages/Regulations/Regulatory%20Issuances/2021/1108.pdf' },
-      { label:'CEZA fintech and offshore virtual currency', url:'https://ceza.gov.ph/fintech/' }
+      { label:'SEC Philippines official site', url:'https://www.sec.gov.ph/' }
     ]
   },
   id: {
     lastReviewed:'May 2026',
     sources:[
       { label:'BAPPEBTI official site', url:'https://bappebti.go.id/' },
-      { label:'OJK digital financial assets', url:'https://www.ojk.go.id/en/berita-dan-kegiatan/siaran-pers/Pages/OJK-Issues-Regulation-on-Information-Technology-Based-Joint-Funding-Services-and-Digital-Financial-Assets.aspx' }
+      { label:'OJK and BI transfer announcement', url:'https://www.ojk.go.id/en/berita-dan-kegiatan/siaran-pers/Documents/Pages/Bappebti-Transfers-Regulation-and-Supervision-Duties-on-Digital-Financial-Assets-Crypto-Assets-and-Derivatives-to-OJK-BI/JPR%20Bappebti%20of%20Indonesian%20Ministry%20of%20Trades%20Transfers%20Regulation%20and%20Supervision%20Duties%20on%20Digital%20Financial%20Assets%20Crypto%20Assets%20and%20Derivatives%20to%20OJK%20and%20BI.pdf' },
+      { label:'OJK Regulation 27/2024', url:'https://iru.ojk.go.id/iru/BE/uploads/regulation/files/file_444fdb9e-8b49-4e13-80e7-47c0330160f3-17042025155234.pdf' }
+    ]
+  },
+  my: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'SC Malaysia digital assets', url:'https://www.sc.com.my/digital-assets' },
+      { label:'SC Malaysia digital asset guidelines', url:'https://www.sc.com.my/regulation/guidelines/digital-assets' },
+      { label:'SC revised DAX guidelines', url:'https://www.sc.com.my/resources/media/media-release/sc-issues-revised-guidelines-on-recognized-markets-for-digital-asset-exchange' }
+    ]
+  },
+  vn: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'Resolution 05/2025/NQ-CP text', url:'https://english.luatvietnam.vn/resolution-no-05-2025-nq-cp-dated-september-09-2025-of-the-government-on-piloting-the-crypto-asset-market-in-vietnam-410830-doc1.html' },
+      { label:'Vietnam government pilot coverage', url:'https://vietnamnet.vn/en/new-rules-signal-end-of-underground-crypto-trading-in-vietnam-2445861.html' }
+    ]
+  },
+  tw: {
+    lastReviewed:'May 2026',
+    sources:[
+      { label:'FSC VASP registration measure', url:'https://www.fsc.gov.tw/en/home.jsp?dataserno=202501240001&dtable=Bulletin&id=74&mcustomize=multimessage_view.jsp&parentpath=0%2C2' },
+      { label:'FSC AML registration regulations', url:'https://law.fsc.gov.tw/EngLawContent.aspx?id=2734&lan=E' },
+      { label:'FSC VASP AML/CFT regulations', url:'https://law.fsc.gov.tw/EngLawContent.aspx?id=2733&lan=E' }
     ]
   },
   au: {
@@ -1266,6 +1376,18 @@ function numberWord(value) {
   return words[value] || String(value);
 }
 
+const statusLabels = {
+  licensed: 'licensed',
+  'payment-restricted': 'payment restricted',
+  transitional: 'transitional',
+  restricted: 'restricted',
+  banned: 'banned'
+};
+
+function statusLabel(status) {
+  return statusLabels[status] || status;
+}
+
 function sourceMeta(c) {
   const registryEntry = sourceRegistry[c.id] || {};
   const reviewed = c.lastReviewed || registryEntry.lastReviewed || 'May 2026';
@@ -1290,12 +1412,14 @@ function sourceMeta(c) {
 }
 
 // Compute stats
-const counts = { licensed: 0, restricted: 0, banned: 0 };
+const counts = { licensed: 0, 'payment-restricted': 0, transitional: 0, restricted: 0, banned: 0 };
 countries.forEach(c => counts[c.status]++);
 document.getElementById('jurisdiction-total-inline').textContent = numberWord(countries.length);
 document.getElementById('tracked-count').textContent = `${countries.length} jurisdictions tracked`;
 document.getElementById('visible-count').textContent = `${countries.length} entries`;
 document.getElementById('stat-licensed').textContent = String(counts.licensed).padStart(2, '0');
+document.getElementById('stat-payment-restricted').textContent = String(counts['payment-restricted']).padStart(2, '0');
+document.getElementById('stat-transitional').textContent = String(counts.transitional).padStart(2, '0');
 document.getElementById('stat-restricted').textContent = String(counts.restricted).padStart(2, '0');
 document.getElementById('stat-banned').textContent = String(counts.banned).padStart(2, '0');
 
@@ -1316,6 +1440,7 @@ const labelOffsets = {
   sg: { dx: 12, dy: 4 },
   jp: { dx: 12, dy: -2 },
   kr: { dx: -2, dy: -10 },
+  tw: { dx: 12, dy: 2 },
   ph: { dx: 12, dy: 2 },
   th: { dx: -4, dy: -10 },
   uk: { dx: -4, dy: -10 },
@@ -1338,6 +1463,8 @@ const labelOffsets = {
   ca: { dx: -10, dy: -10 },
   tr: { dx: 0, dy: -10 },
   id: { dx: 12, dy: 2 },
+  my: { dx: 12, dy: 8 },
+  vn: { dx: 12, dy: 2 },
   au: { dx: 0, dy: 14 },
 };
 
@@ -1381,7 +1508,7 @@ regions.forEach(region => {
             <span class="card-flag">${escapeHtml(c.flag)}</span>
           </div>
           <div class="card-tagline">${escapeHtml(c.tagline)}</div>
-          <span class="card-status" data-status="${escapeHtml(c.status)}">${escapeHtml(c.status)}</span>
+          <span class="card-status" data-status="${escapeHtml(c.status)}">${escapeHtml(statusLabel(c.status))}</span>
         </article>
       `).join('')}
     </div>`;
@@ -1404,7 +1531,7 @@ function openPanel(id) {
     <header class="panel-header">
       <div class="panel-eyebrow">
         <span>Dossier</span>
-        <span class="status-pill" data-status="${escapeHtml(c.status)}">${escapeHtml(c.status)}</span>
+        <span class="status-pill" data-status="${escapeHtml(c.status)}">${escapeHtml(statusLabel(c.status))}</span>
         <span>${escapeHtml(c.region)}</span>
       </div>
       <h2 class="panel-title" id="panel-title">${escapeHtml(c.name)} <span class="flag">${escapeHtml(c.flag)}</span></h2>

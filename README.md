@@ -1,16 +1,16 @@
 # Crypto Regulatory Atlas
 
-Interactive single-page visualization of the global crypto regulatory landscape. 27 jurisdictions across 5 regions, each with a click-through dossier.
+Interactive single-page visualization of the global crypto regulatory landscape. 30 jurisdictions across 5 regions, each with a click-through dossier.
 
 ![Status: static-site](https://img.shields.io/badge/site-static-blue) ![Build: none](https://img.shields.io/badge/build-none-green)
 
 ## What's in it
 
-- **Interactive world map** with status-colored country pins (licensed / restricted / banned)
+- **Interactive world map** with status-colored country pins (licensed / payment restricted / transitional / restricted / banned)
 - **Per-country dossier panel** covering regulators, framework, license types, key requirements, and an operator-level practical note
 - **Regional card grid** (Americas, Europe, MENA, APAC, Africa) for fast browsing
 - **Filter chips + search** across country names and regulators
-- **Live stat counters** for licensed / restricted / banned jurisdictions
+- **Live stat counters** for licensed / payment restricted / transitional / restricted / banned jurisdictions
 
 ## Stack
 

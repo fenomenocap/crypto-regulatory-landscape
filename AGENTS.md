@@ -4,7 +4,7 @@ Instructions for Codex (and other coding agents) working on this repository.
 
 ## Project
 
-**Crypto Regulatory Atlas** — a single-page interactive visualization of the global crypto regulatory landscape. 27 jurisdictions tracked across 5 regions, each with a clickable dossier covering regulators, frameworks, license types, key requirements, and operator notes.
+**Crypto Regulatory Atlas** — a single-page interactive visualization of the global crypto regulatory landscape. 30 jurisdictions tracked across 5 regions, each with a clickable dossier covering regulators, frameworks, license types, key requirements, and operator notes.
 
 ## Architecture
 
@@ -48,7 +48,7 @@ Country data lives in the `countries` array inside `index.html` (search for `con
   region: 'Americas' | 'Europe' | 'MENA' | 'APAC' | 'Africa',
   lat: 0,                        // for map pin placement
   lng: 0,
-  status: 'licensed' | 'restricted' | 'banned',
+  status: 'licensed' | 'payment-restricted' | 'transitional' | 'restricted' | 'banned',
   regulators: 'AAA · BBB · CCC', // ' · ' separated
   tagline: 'One-line summary for the card.',
   summary: 'Italicized blockquote at the top of the dossier panel.',
@@ -77,7 +77,7 @@ If asked to extend or restyle, preserve:
 
 - **Dark editorial** aesthetic — warm cream text (`--text-primary: #f5f1e8`) on near-black (`--bg: #0c0c0e`), warm amber accent (`--accent: #d4a574`)
 - **Typography pairing** — Instrument Serif for display, IBM Plex Mono for labels/metadata, IBM Plex Sans for body
-- **Status color system** — green/amber/red for licensed/restricted/banned, used consistently across map pins, card border, status pills, and panel header
+- **Status color system** — green/blue/purple/amber/red for licensed/payment-restricted/transitional/restricted/banned, used consistently across map pins, card border, status pills, and panel header
 - **Mono-uppercase labels** with wide letter-spacing for any metadata or eyebrow text
 
 Avoid: generic SaaS gradients, rounded-everything design, sans-only typography, default Tailwind/shadcn aesthetic.
