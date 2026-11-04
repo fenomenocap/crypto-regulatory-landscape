@@ -89,3 +89,13 @@ Avoid: generic SaaS gradients, rounded-everything design, sans-only typography, 
 - Don't replace the inline data with a fetched JSON file unless explicitly asked — keeping it inline means zero-runtime-failure deployment
 - Don't add analytics, tracking, or third-party scripts without asking
 - Don't change the editorial color palette or typography without asking
+
+## Deploy quota rules (Vercel free tier, ~100 deploys/day)
+- Never trigger Vercel deploys from feature/PR branches. Only `main` deploys.
+- Do not run `vercel`, `vercel deploy`, or `vercel --prod` from the CLI unless the owner explicitly asks.
+- Commit locally as often as you like, but push in batches: push a branch once when the work is ready for review, not after every commit.
+- Verify with local builds/tests and GitHub Actions CI, not by deploying.
+- Squash-merge PRs so each merge to main is one deploy, and group related small PRs into one merge where sensible.
+- Do not change vercel.json `git.deploymentEnabled` or the Ignored Build Step to deploy more often.
+- If a change touches no web/app files (docs, backend, CI, tests), it must not cause a Vercel build.
+- Before a day with many merges, check today's Vercel deploy count and stop at 80; tell the owner instead of continuing.
